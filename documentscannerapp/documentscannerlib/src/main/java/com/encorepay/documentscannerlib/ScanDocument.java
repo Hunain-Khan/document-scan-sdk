@@ -2,10 +2,13 @@ package com.encorepay.documentscannerlib;
 
 import android.app.Activity;
 import android.content.Intent;
+
+import androidx.annotation.Keep;
+
 import io.card.payment.CardConfig;
 import io.card.payment.CardScannerActivity;
 
-
+@Keep
 public class ScanDocument {
     private CardConfig.Builder cardConfig;
     public static final int REQ_CARD_SCAN = 200;
