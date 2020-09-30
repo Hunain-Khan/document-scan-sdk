@@ -48,4 +48,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation files('libs\\cardreader-0.0.0.0.9.aar')
 
+
 }
