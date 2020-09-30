@@ -6,18 +6,19 @@ import android.content.Intent;
 import androidx.annotation.Keep;
 
 import io.card.payment.CardConfig;
+import io.card.payment.CardConfig.Builder;
 import io.card.payment.CardScannerActivity;
 
 @Keep
 public class ScanDocument {
-    private CardConfig.Builder cardConfig;
+    private Builder cardConfig;
     public static final int REQ_CARD_SCAN = 200;
     public static final String CARD_FRONT_IMAGE = "cardFrontSideImage";
     public static final String CARD_BACK_IMAGE = "cardBackSideImage";
 
 
     public ScanDocument(){
-        cardConfig = new CardConfig.Builder();
+        cardConfig = new Builder();
     }
 
     public void startScanActivity(Activity activity,int REQ_CODE) {
