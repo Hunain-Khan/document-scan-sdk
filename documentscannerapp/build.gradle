@@ -20,15 +20,10 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url "https://maven.google.com"
+        flatDir {
+            dirs 'libs'
         }
-        maven {
-            url "https://unikrewmavenrepository-staging.azurewebsites.net"
-        }
-        maven {
-            url "http://unikrewmavenrepository-development.azurewebsites.net"
-        }
+
     }
 }
 
