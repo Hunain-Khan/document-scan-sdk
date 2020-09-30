@@ -1,51 +1,37 @@
-apply plugin: 'com.android.library'
-
-apply plugin: 'com.github.dcendents.android-maven'
-
-group='com.github.HunainKhan'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
-
-
     defaultConfig {
+        applicationId "com.encorepay.document_scanner"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
+
         ndk {
             moduleName "cardioRecognizer"
             abiFilters "armeabi-v7a" //, "x86", "x86_64", "arm64-v8a"
         }
     }
-
     buildTypes {
         release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    packagingOptions {
-        exclude 'META-INF/proguard/androidx-annotations.pro'
-        exclude 'META-INF/androidx.exifinterface_exifinterface.version'
-    }
-
 
 
 }
 
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    implementation files('libs\\cardreader-0.0.0.0.9.aar')
-
+    implementation project(':documentscannerlib')
 }
