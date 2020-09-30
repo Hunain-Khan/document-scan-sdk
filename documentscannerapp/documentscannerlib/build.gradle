@@ -4,6 +4,16 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 group='com.github.HunainKhan'
 
+
+repositories {
+//    maven {
+//        mavenCentral()
+//    }
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -46,7 +56,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    implementation files('libs\\cardreader-0.0.0.0.9.aar')
+    implementation 'com.unikrew.faceoff:cardreader:0.0.0.0.9'
+   // implementation files('libs\\cardreader-0.0.0.0.9.aar')
 
 
 }
