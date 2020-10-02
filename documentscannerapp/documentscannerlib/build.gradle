@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.HunainKhan'
+group='com.github.Hunain-Khan'
 
 
 repositories {
@@ -66,8 +66,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.android.support:multidex:1.0.0'
-    api files('libs\\cardreader-0.0.0.0.9.aar')
-    //api 'com.unikrew.faceoff:cardreader:0.0.0.0.9'
+    //api files('libs\\cardreader-0.0.0.0.9.aar')
+    api 'com.unikrew.faceoff:cardreader:0.0.0.0.9'
 
 
 }
