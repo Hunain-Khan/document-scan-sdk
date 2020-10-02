@@ -23,7 +23,7 @@
 # See https://speakerdeck.com/chalup/proguard
 -optimizations !code/allocation/variable
 
--keep public class * {
-    public protected *;
-}
-
+-keep class io.card.payment.** {*;}
+-keep class com.encorepay.documentscannerlib.** {*;}
+-keepclassmembers  class io.card.payment.** {*;}
+-keepclassmembers class com.encorepay.documentscannerlib.** {*;}
