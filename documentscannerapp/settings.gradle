@@ -1,2 +1,2 @@
-include ':app', ':documentscannerlib', ':cardreader-0.0.0.0.9'
+include ':app', ':documentscannerlib', ':cardreader-0.0.0.0.9', ':cardreader-0.0.0.0.9-sources', ':cardreader-0.0.0.0.9-javadoc'
 rootProject.name='document-scanner-app'
