@@ -13,7 +13,6 @@ repositories {
 //    flatDir {
 //        dirs 'libs'
 //    }
-    mavenLocal()
 }
 
 android {
@@ -68,40 +67,40 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
      implementation 'com.android.support:multidex:1.0.0'
-     implementation project(path: ':cardreader-0.0.0.0.9')
+     api project(path: ':cardreader-0.0.0.0.9')
     //api files('libs\\cardreader-0.0.0.0.9.aar')
    // implementation ('com.unikrew.faceoff:cardreader:0.0.0.0.9')
 
 
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId 'com.encorepay'
-            //You can either define these here or get them from project conf elsewhere
-            artifactId 'documentscannerlib'
-            version '1.2.3'
-            artifact "$buildDir/outputs/aar/documentscannerlib-release.aar" //aar artifact you want to publish
-
-            //generate pom nodes for dependencies
-            pom.withXml {
-                def dependenciesNode = asNode().appendNode('dependencies')
-                configurations.implementation.allDependencies.each { dependency ->
-                    if (dependency.name != 'unspecified') {
-                        def dependencyNode = dependenciesNode.appendNode('dependency')
-                        dependencyNode.appendNode('groupId', dependency.group)
-                        dependencyNode.appendNode('artifactId', dependency.name)
-                        dependencyNode.appendNode('version', dependency.version)
-                    }
-                }
-            }
-        }
-    }
-    //publish to filesystem repo
-    repositories{
-        maven {
-            url "$buildDir/repo"
-        }
-    }
-}
+//publishing {
+//    publications {
+//        maven(MavenPublication) {
+//            groupId 'com.encorepay'
+//            //You can either define these here or get them from project conf elsewhere
+//            artifactId 'documentscannerlib'
+//            version '1.2.3'
+//            artifact "$buildDir/outputs/aar/documentscannerlib-release.aar" //aar artifact you want to publish
+//
+//            //generate pom nodes for dependencies
+//            pom.withXml {
+//                def dependenciesNode = asNode().appendNode('dependencies')
+//                configurations.implementation.allDependencies.each { dependency ->
+//                    if (dependency.name != 'unspecified') {
+//                        def dependencyNode = dependenciesNode.appendNode('dependency')
+//                        dependencyNode.appendNode('groupId', dependency.group)
+//                        dependencyNode.appendNode('artifactId', dependency.name)
+//                        dependencyNode.appendNode('version', dependency.version)
+//                    }
+//                }
+//            }
+//        }
+//    }
+//    //publish to filesystem repo
+//    repositories{
+//        maven {
+//            url "$buildDir/repo"
+//        }
+//    }
+//}
