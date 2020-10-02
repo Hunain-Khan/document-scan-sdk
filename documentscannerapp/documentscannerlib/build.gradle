@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 group='com.github.Hunain-Khan'
 
@@ -73,4 +73,35 @@ dependencies {
    // implementation ('com.unikrew.faceoff:cardreader:0.0.0.0.9')
 
 
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'com.encorepay'
+            //You can either define these here or get them from project conf elsewhere
+            artifactId 'documentscannerlib'
+            version '1.2.3'
+            artifact "$buildDir/outputs/aar/documentscannerlib-release.aar" //aar artifact you want to publish
+
+            //generate pom nodes for dependencies
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode('dependencies')
+                configurations.implementation.allDependencies.each { dependency ->
+                    if (dependency.name != 'unspecified') {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', dependency.group)
+                        dependencyNode.appendNode('artifactId', dependency.name)
+                        dependencyNode.appendNode('version', dependency.version)
+                    }
+                }
+            }
+        }
+    }
+    //publish to filesystem repo
+    repositories{
+        maven {
+            url "$buildDir/repo"
+        }
+    }
 }
