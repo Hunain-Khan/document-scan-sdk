@@ -1,25 +1,11 @@
 apply plugin: 'com.android.library'
-
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'maven-publish'
-
 group='com.github.Hunain-Khan'
-
-
-repositories {
-//    maven {
-//        mavenCentral()
-//    }
-//    flatDir {
-//        dirs 'libs'
-//    }
-}
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
-
-
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
@@ -31,8 +17,6 @@ android {
         ndk {
             abiFilters "armeabi", "armeabi-v7a", "x86"
         }
-
-
         multiDexEnabled true
     }
 
@@ -54,11 +38,7 @@ android {
         exclude 'META-INF/proguard/androidx-annotations.pro'
         exclude 'META-INF/androidx.exifinterface_exifinterface.version'
     }
-
-
-
 }
-
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -66,14 +46,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-     implementation 'com.android.support:multidex:1.0.0'
-    api project(path: ':cardreader-0.0.0.0.9')
-    implementation project(path: ':cardreader-0.0.0.0.9-javadoc')
-    implementation project(path: ':cardreader-0.0.0.0.9-sources')
-    //api files('libs\\cardreader-0.0.0.0.9.aar')
-   // implementation ('com.unikrew.faceoff:cardreader:0.0.0.0.9')
-
-
+    implementation 'com.android.support:multidex:1.0.0'
+    implementation project(path: ':cardreader-0.0.0.0.9')
 }
 
 //publishing {
