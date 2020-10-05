@@ -47,7 +47,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.android.support:multidex:1.0.0'
-    implementation project(path: ':cardreader-0.0.0.0.9')
+    implementation 'com.unikrew.faceoff:cardreader:0.0.0.0.9'
+    //implementation project(path: ':cardreader-0.0.0.0.9')
 }
 
 //publishing {
